@@ -28,7 +28,7 @@ services:
                     net:
                         ipv4_address: 10.254.2.2
         lnd:
-                image: lncm/lnd:v0.11.1-experimental
+                image: lncm/lnd:v0.11.1-experimental@sha256:4d9cae5c283ab95e2dc0ee9eb2365db53e42e8eb6a7c041ba34b3452dabf48b8
                 container_name: lnd
                 volumes:
                         - ${PWD}/lnd:/data/.lnd
@@ -44,7 +44,7 @@ services:
                     net:
                         ipv4_address: 10.254.2.3
         invoicer:
-                image: "lncm/invoicer:v0.8.1"
+                image: "lncm/invoicer:v0.8.1@sha256:c5f46d38257f3882ae9524a25fe73740248c797e7a2958b510349031bb366e43"
                 container_name: invoicer
                 depends_on: [ bitcoin, lnd ]
                 restart: on-failure
@@ -88,7 +88,7 @@ services:
                     net:
                         ipv4_address: 10.254.2.6
         tor:
-                image: "lncm/tor:0.4.4.5"
+                image: "lncm/tor:0.4.4.5@sha256:e7b051f148423a3d98d8d06eb326c1675ae70c07ca8e31861acdf21fcb910f83"
                 container_name: tor
                 restart: on-failure
                 volumes:
